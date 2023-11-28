@@ -4,7 +4,6 @@ import UiContainer from './UiContainer.js';
 import MeetupDescription from '../../02-MeetupDescription/components/MeetupDescription.js';
 import MeetupCover from '../../03-MeetupCover/components/MeetupCover.js';
 import MeetupInfo from '../../04-MeetupInfo/components/MeetupInfo.js';
-import MeetupAgendaItem from '../../05-MeetupAgenda/components/MeetupAgendaItem.js';
 import MeetupAgenda from '../../05-MeetupAgenda/components/MeetupAgenda.js';
 
 export default defineComponent({
@@ -16,7 +15,6 @@ export default defineComponent({
     MeetupDescription,
     MeetupCover,
     MeetupInfo,
-    MeetupAgendaItem,
     MeetupAgenda
   },
 
