@@ -16,7 +16,7 @@
         <div class="form__buttons">
           <button type="submit" class="button button_primary button_block">Войти</button>
         </div>
-        <div class="form__append">Нет аккаунта? <a href="/register" class="link">Зарегистрируйтесь</a></div>
+        <div class="form__append">Нет аккаунта? <router-link to="/register" class="link">Зарегистрируйтесь</router-link></div>
       </form>
     </UiContainer>
   </div>
@@ -32,11 +32,16 @@ export default {
   components: {
     UiFormGroup,
     UiContainer,
-  },
+},
 
   methods: {
     handleSubmit() {
-      // Требуется обработать сабмит формы
+      const redirectFrom = this.$route.query.from;
+      if (redirectFrom) {
+        this.$router.push({ path: redirectFrom });
+      } else {
+        this.$router.push({ name: 'home' }); 
+      }
     },
   },
 };
