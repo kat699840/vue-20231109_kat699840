@@ -1,7 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+const scrollBehavior = (to, from, savedPosition) => {
+  if (to.hash) {
+    return { el: to.hash, behavior: 'smooth' };
+  } else if (savedPosition) {
+    return savedPosition;
+  } else if (to.matched.some(record => record.meta.saveScrollPosition) && !from.matched.some(record => record.meta.saveScrollPosition)) {
+    return { left: 0, top: 0, behavior: 'smooth' };
+  } else if (to.matched.some(record => record.meta.saveScrollPosition) && from.matched.some(record => record.meta.saveScrollPosition)) {
+    return false;
+  } else {
+    return { left: 0, top: 0, behavior: 'smooth' };
+  }
+};
+
 export const router = createRouter({
-  history: createWebHistory('/05-vue-router/03-ScrollBehavior'),
+  history: createWebHistory('/05-vue-router/03-ScrollBehavior'), scrollBehavior,
 
   routes: [
     {
