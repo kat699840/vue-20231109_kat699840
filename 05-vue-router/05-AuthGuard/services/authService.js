@@ -17,5 +17,5 @@ export function login() {
 }
 
 export function logout() {
-  isLoggedIn = false;
+  isLoggedIn = false; 
 }
